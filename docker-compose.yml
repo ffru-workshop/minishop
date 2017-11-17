@@ -1,0 +1,14 @@
+version: "3"
+services:
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+    ports: 
+      - "3306:3306"
+  syslog:
+    build: ./syslogdummy/
+    container_name: syslog
+    restart: always
+    ports:
+      - "514:514/udp"
